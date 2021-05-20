@@ -17,25 +17,35 @@ load("@io_bazel_rules_docker//container:container.bzl", "container_pull")
 def repositories():
     container_pull(
         name = "distroless-base",
-        digest = "sha256:2b0a8e9a13dcc168b126778d9e947a7081b4d2ee1ee122830d835f176d0e2a70",
+#        digest = "sha256:2b0a8e9a13dcc168b126778d9e947a7081b4d2ee1ee122830d835f176d0e2a70",
+        digest = "sha256:5d2e4e5c39a5e9a6e7e39ccaf30ca3b10d306f8222ec1185dd6c2d6eedbf2325",
         registry = "gcr.io",
         repository = "distroless/base",
+	architecture = "ppc64le",
         # tag = "latest", as of Jul 15 2020
     )
 
     container_pull(
         name = "alpine-base",
-        digest = "sha256:94eabd0927065a4fd03136179c4467fc42d3d08f78fd571e395599ff8521c210",
-        registry = "gcr.io",
-        repository = "k8s-prow/alpine",
+#        digest = "sha256:94eabd0927065a4fd03136179c4467fc42d3d08f78fd571e395599ff8521c210",
+#        registry = "gcr.io",
+#        repository = "k8s-prow/alpine",
+        digest = "sha256:ec2c8b3c3ea50c00c218ba5c39a16edc7c45e53638b7df31a3a5ef710ad4ba5d",
+        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
+        repository = "khdo/alpine",
+	architecture = "ppc64le",
         # tag = "v20200713-e9b3d9d",
     )
 
     container_pull(
         name = "alpine-bash",
-        digest = "sha256:5b2616c8e2a9ca1e8cd015ad76df3bedecdb7b98b8825c718360ec6b98cb1dcc",
-        registry = "gcr.io",
-        repository = "k8s-testimages/alpine-bash",
+#        digest = "sha256:5b2616c8e2a9ca1e8cd015ad76df3bedecdb7b98b8825c718360ec6b98cb1dcc",
+#        registry = "gcr.io",
+#        repository = "k8s-testimages/alpine-bash",
+        digest = "sha256:80fbbb35fed1ba93db2ac1384c67da5212ae685f63ef4d553eb63aa542c8addd",
+        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
+        repository = "khdo/alpine-bash",
+	architecture = "ppc64le",
         # tag = "v20200713-e9b3d9d",
     )
 
@@ -49,10 +59,15 @@ def repositories():
 
     container_pull(
         name = "git-base",
-        digest = "sha256:1527341aff1003b6b27c8ed935e6f0200258bee55b6eb178ca3ef124196384fe",
-        registry = "gcr.io",
-        repository = "k8s-prow/git",
+#        digest = "sha256:1527341aff1003b6b27c8ed935e6f0200258bee55b6eb178ca3ef124196384fe",
+#        registry = "gcr.io",
+#        repository = "k8s-prow/git",
+#        digest = "sha256:d3c92e68ef464b3688ace9ec9edd484167f395c76f1c4a396e1c0177b5043e16",
+        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
+        repository = "khdo/git",
+	architecture = "ppc64le",
         # tag = "v20200713-e9b3d9d",
+	tag = "kdo"
     )
 
     container_pull(

@@ -12,7 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM gcr.io/k8s-prow/alpine:v20200605-44f6c96
+#FROM gcr.io/k8s-prow/alpine:v20200605-44f6c96
+FROM quay.io/khdo/alpine:latest
 
 ARG IMAGE_ARG
 ENV IMAGE=${IMAGE_ARG}

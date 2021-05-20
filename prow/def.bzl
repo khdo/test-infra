@@ -35,7 +35,7 @@ def prow_image(
         name = app_name,
         base = base,
         embed = [":go_default_library"],
-        goarch = "amd64",
+        goarch = "ppc64le",
         goos = "linux",
         pure = "on",
         x_defs = {"k8s.io/test-infra/prow/version.Name": component},

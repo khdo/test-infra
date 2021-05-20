@@ -31,9 +31,18 @@ load("@io_k8s_repo_infra//:repos.bzl", _repo_infra_go_repos = "go_repositories")
 
 _repo_infra_go_repos()
 
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@io_bazel_rules_docker//repositories:repositories.bzl", _container_repositories = "repositories")
 
 _container_repositories()
+http_file(
+            name = "go_puller_linux",
+            executable = True,
+            sha256 = "540f4d7b2a3d627d7c3190f11c4fab5f8aad48bd42a9dffb037786e26270b6bd",
+	    urls = ["https://storage.googleapis.com/builddeps/540f4d7b2a3d627d7c3190f11c4fab5f8aad48bd42a9dffb037786e26270b6bd"],
+        )
+
+load("@io_bazel_rules_docker//repositories:deps.bzl", container_deps = "deps")
 
 load("@io_bazel_rules_docker//repositories:deps.bzl", _container_deps = "deps")
 
