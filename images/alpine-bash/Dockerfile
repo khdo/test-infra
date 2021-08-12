@@ -14,7 +14,7 @@
 
 # Includes bash, see //containers.bzl
 #FROM gcr.io/k8s-prow/alpine:v20200605-44f6c96
-FROM quay.io/khdo/alpine:latest
+FROM docker.io/s390x/alpine:latest
 
 # add env we can debug with the image name:tag
 ARG IMAGE_ARG

@@ -13,7 +13,7 @@
 # limitations under the License.
 
 #FROM gcr.io/k8s-prow/alpine:v20200605-44f6c96
-FROM quay.io/khdo/alpine:latest
+FROM docker.io/s390x/alpine:latest
 
 ARG IMAGE_ARG
 ENV IMAGE=${IMAGE_ARG}

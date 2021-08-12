@@ -52,7 +52,7 @@ steps:
     env:
     - CGO_ENABLED=0
     - GOOS=linux
-    - GOARCH=amd64
+    - GOARCH=s390x
   - name: gcr.io/cloud-builders/docker
     args:
     - build
@@ -116,7 +116,7 @@ run arbitrary code inside the prow job, or jobs that substantially deviate from
 this template. One day, we may automate this away.
 
 If you aren't sure, feel free to ask a [reviewer](./OWNERS) to do this part
-for you. 
+for you.
 
 Prow config should be in a file named after your staging GCR project, and should
 be based on this template:
