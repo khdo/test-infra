@@ -21,7 +21,7 @@ def repositories():
         digest = "sha256:5d2e4e5c39a5e9a6e7e39ccaf30ca3b10d306f8222ec1185dd6c2d6eedbf2325",
         registry = "gcr.io",
         repository = "distroless/base",
-	architecture = "ppc64le",
+	architecture = "s390x",
         # tag = "latest", as of Jul 15 2020
     )
 
@@ -30,10 +30,10 @@ def repositories():
 #        digest = "sha256:94eabd0927065a4fd03136179c4467fc42d3d08f78fd571e395599ff8521c210",
 #        registry = "gcr.io",
 #        repository = "k8s-prow/alpine",
-        digest = "sha256:ec2c8b3c3ea50c00c218ba5c39a16edc7c45e53638b7df31a3a5ef710ad4ba5d",
-        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
-        repository = "khdo/alpine",
-	architecture = "ppc64le",
+        digest = "sha256:8da55c3aad6605ae68612408e46d5c8630f77ef96c760fd1bbfa89c82b9dc946",
+        registry = "docker.io",
+        repository = "s390x/alpine",
+        architecture = "s390x",
         # tag = "v20200713-e9b3d9d",
     )
 
@@ -42,10 +42,10 @@ def repositories():
 #        digest = "sha256:5b2616c8e2a9ca1e8cd015ad76df3bedecdb7b98b8825c718360ec6b98cb1dcc",
 #        registry = "gcr.io",
 #        repository = "k8s-testimages/alpine-bash",
-        digest = "sha256:80fbbb35fed1ba93db2ac1384c67da5212ae685f63ef4d553eb63aa542c8addd",
-        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
-        repository = "khdo/alpine-bash",
-	architecture = "ppc64le",
+        digest = "sha256:79d31f3db8159b6fb2bc1de2500a0e8d546cb5be3903e717f83cbfe74cdb5b7c",
+        registry = "sys-loz-test-team-docker-local.artifactory.swg-devops.com",
+        repository = "s390x/alpine-bash",
+        architecture = "s390x",
         # tag = "v20200713-e9b3d9d",
     )
 
@@ -63,11 +63,10 @@ def repositories():
 #        registry = "gcr.io",
 #        repository = "k8s-prow/git",
 #        digest = "sha256:d3c92e68ef464b3688ace9ec9edd484167f395c76f1c4a396e1c0177b5043e16",
-        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
-        repository = "khdo/git",
-	architecture = "ppc64le",
-        # tag = "v20200713-e9b3d9d",
-	tag = "kdo"
+      digest = "sha256:667a4cdc6dc4e7cb6edee50b6f3a30788828b3e11c883e33cd364ccd5d4216a2",
+      registry = "sys-loz-test-team-docker-local.artifactory.swg-devops.com",
+      repository = "s390x/git",
+      architecture = "s390x",
     )
 
     container_pull(
