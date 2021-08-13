@@ -36,7 +36,7 @@ def repositories():
     http_archive(
         name = "io_bazel_rules_k8s",
         strip_prefix = "rules_k8s-0.6",
-	urls = ["http://kernelci-06.khw.lab.eng.bos.redhat.com/kha/v0.6.tar.gz"],
+	urls = ["http://bastion.ocp-m3544008.lnxne.boe:8080/ignition/v0.6.tar.gz"],
         sha256 = "78f0715cbaf5734f943b30c362611cd0cb777d7ab245b5b7677cc7443577c088",
         #urls = ["https://github.com/bazelbuild/rules_k8s/archive/v0.6.tar.gz"],
         #sha256 = "51f0977294699cd547e139ceff2396c32588575588678d2054da167691a227ef",
@@ -46,7 +46,7 @@ def repositories():
     http_archive(
         name = "build_bazel_rules_nodejs",
         sha256 = "2cb2975c039fd3e50a4339deb37d2b35bd23e3a89fa1e96c8a5fccab09629941",
-	urls = ["http://kernelci-06.khw.lab.eng.bos.redhat.com/kha/rules_nodejs-3.1.1.tar.gz"],
+	urls = ["http://bastion.ocp-m3544008.lnxne.boe:8080/ignition/rules_nodejs-3.1.1.tar.gz"],
         #sha256 = "dd4dc46066e2ce034cba0c81aa3e862b27e8e8d95871f567359f7a534cccb666",
         #urls = ["https://github.com/bazelbuild/rules_nodejs/releases/download/3.1.0/rules_nodejs-3.1.0.tar.gz"],
     )

@@ -11,42 +11,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+#rm -rf /root/.cache/bazel/
 
 load("@io_bazel_rules_docker//container:container.bzl", "container_pull")
 
 def repositories():
     container_pull(
         name = "distroless-base",
-#        digest = "sha256:2b0a8e9a13dcc168b126778d9e947a7081b4d2ee1ee122830d835f176d0e2a70",
-        digest = "sha256:5d2e4e5c39a5e9a6e7e39ccaf30ca3b10d306f8222ec1185dd6c2d6eedbf2325",
+        digest = "sha256:9b118af5af307cb2c271336056e4bbc1d0cd943765f4eedcf06e87310ff00ba6",
         registry = "gcr.io",
         repository = "distroless/base",
-	architecture = "ppc64le",
-        # tag = "latest", as of Jul 15 2020
-    )
-
-    container_pull(
-        name = "alpine-base",
-#        digest = "sha256:94eabd0927065a4fd03136179c4467fc42d3d08f78fd571e395599ff8521c210",
-#        registry = "gcr.io",
-#        repository = "k8s-prow/alpine",
-        digest = "sha256:ec2c8b3c3ea50c00c218ba5c39a16edc7c45e53638b7df31a3a5ef710ad4ba5d",
-        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
-        repository = "khdo/alpine",
-	architecture = "ppc64le",
-        # tag = "v20200713-e9b3d9d",
-    )
-
-    container_pull(
-        name = "alpine-bash",
-#        digest = "sha256:5b2616c8e2a9ca1e8cd015ad76df3bedecdb7b98b8825c718360ec6b98cb1dcc",
-#        registry = "gcr.io",
-#        repository = "k8s-testimages/alpine-bash",
-        digest = "sha256:80fbbb35fed1ba93db2ac1384c67da5212ae685f63ef4d553eb63aa542c8addd",
-        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
-        repository = "khdo/alpine-bash",
-	architecture = "ppc64le",
-        # tag = "v20200713-e9b3d9d",
+        architecture = "s390x",
+        tag = "latest-s390x",
     )
 
     container_pull(
@@ -54,20 +30,8 @@ def repositories():
         digest = "sha256:5b49dfb5e366dd75a5fc6d5d447be584f8f229c5a790ee0c3b0bd0cf70ec41dd",
         registry = "gcr.io",
         repository = "cloud-builders/gcloud",
-        # tag = "latest",
-    )
-
-    container_pull(
-        name = "git-base",
-#        digest = "sha256:1527341aff1003b6b27c8ed935e6f0200258bee55b6eb178ca3ef124196384fe",
-#        registry = "gcr.io",
-#        repository = "k8s-prow/git",
-#        digest = "sha256:d3c92e68ef464b3688ace9ec9edd484167f395c76f1c4a396e1c0177b5043e16",
-        registry = "kernelci-06.khw.lab.eng.bos.redhat.com",
-        repository = "khdo/git",
-	architecture = "ppc64le",
-        # tag = "v20200713-e9b3d9d",
-	tag = "kdo"
+        architecture = "s390x",
+        # #*tag = "latest",
     )
 
     container_pull(
@@ -75,7 +39,8 @@ def repositories():
         digest = "sha256:ca9873d744f19e77ceafb499846248a82cde74ab5a613dd394348e7904d08d71",
         registry = "gcr.io",
         repository = "k8s-testimages/gcloud-in-go",
-        # tag = "v20200205-602500d",
+        architecture = "s390x",
+        tag = "v20200205-602500d",
     )
 
     container_pull(
@@ -84,4 +49,50 @@ def repositories():
         registry = "gcr.io",
         repository = "k8s-testimages/launcher.gcr.io/google/bazel",
         tag = "v20210128-721ee66-test-infra",
+        architecture = "s390x",
     )
+
+    container_pull(
+        name = "git-base",
+        registry = "sys-loz-test-team-docker-local.artifactory.swg-devops.com",
+        repository = "prow/git",
+        tag = "latest",
+        architecture = "s390x",
+        #*quay.io/multi-arch/test-infra@sha256:e86b5eee48ef99077c06e171972f4ef63012cd833e32ff4aa8ae8a8b8ddd5b01
+        ##*docker pull quay.io/multi-arch/test-infra:alpine-s390x
+    )
+    
+# below are the repositries with individual sha value
+  container_pull(
+      name = "alpine-base",
+      digest = "sha256:e86b5eee48ef99077c06e171972f4ef63012cd833e32ff4aa8ae8a8b8ddd5b01",
+      registry = "quay.io",
+      repository = "multi-arch/test-infra",
+      #*tag = "alpine-s390x",
+      architecture = "s390x",
+      #*quay.io/multi-arch/test-infra@sha256:e86b5eee48ef99077c06e171972f4ef63012cd833e32ff4aa8ae8a8b8ddd5b01
+      ##*docker pull quay.io/multi-arch/test-infra:alpine-s390x
+  )
+
+  container_pull(
+      name = "alpine-bash",
+      digest = "sha256:3c0d3c0dac33159cddc06fb5b881bf70bce7088a703d74aede7d1ce05355d4ef",
+      registry = "quay.io",
+      repository = "multi-arch/test-infra",
+      ##*tag = "alpine-bash-s390x",
+      architecture = "s390x",
+      ##*docker pull quay.io/multi-arch/test-infra:alpine-bash-s390x
+      ##*docker pull quay.io/multi-arch/test-infra@sha256:3c0d3c0dac33159cddc06fb5b881bf70bce7088a703d74aede7d1ce05355d4ef
+  )
+
+  container_pull(
+    name = "git-base",
+    digest = "sha256:24757363c52b2043296c3f05fd1675ceb2e6528ff49cb896701f3fb2486ee74a",
+    registry = "quay.io",
+    repository = "multi-arch/test-infra",
+    ##*tag = "git-s390x",
+    architecture = "s390x",
+    ##*docker pull quay.io/multi-arch/test-infra:git-s390x
+    ##*docker pull quay.io/multi-arch/test-infra@sha256:24757363c52b2043296c3f05fd1675ceb2e6528ff49cb896701f3fb2486ee74a
+  )
+
