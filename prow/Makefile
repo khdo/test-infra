@@ -30,7 +30,9 @@ CLUSTER       ?= prow
 REGISTRY ?= gcr.io
 PUSH     ?= docker push
 
-export PROW_REPO_OVERRIDE ?= $(REGISTRY)/$(PROJECT)
+#export PROW_REPO_OVERRIDE ?= $(REGISTRY)/$(PROJECT)
+export PROW_REPO_OVERRIDE ?= "quay.io/multi-arch/test-infra"
+export EDGE_PROW_REPO_OVERRIDE ?= "quay.io/multi-arch/test-infra"
 
 DOCKER_LABELS:=--label io.k8s.prow.git-describe="$(shell git describe --tags --always --dirty)"
 
