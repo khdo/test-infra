@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM alpine:latest
+FROM sys-loz-test-team-docker-local.artifactory.swg-devops.com/s390x/alpine:latest
 
 ARG IMAGE_ARG
 ENV IMAGE=${IMAGE_ARG}

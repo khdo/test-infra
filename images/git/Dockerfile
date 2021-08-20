@@ -13,7 +13,9 @@
 # limitations under the License.
 
 #FROM gcr.io/k8s-prow/alpine:v20200605-44f6c96
-FROM quay.io/khdo/alpine:latest
+#FROM sys-loz-test-team-docker-local.artifactory.swg-devops.com/s390x/alpine:latest
+
+FROM sys-loz-test-team-docker-local.artifactory.swg-devops.com/prow/alpine:latest
 
 ARG IMAGE_ARG
 ENV IMAGE=${IMAGE_ARG}

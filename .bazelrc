@@ -1,4 +1,4 @@
-common --experimental_allow_incremental_repository_updates
+#common --experimental_allow_incremental_repository_updates
 
 # populate env used for stamping builds etc
 build --workspace_status_command=./hack/print-workspace-status.sh
