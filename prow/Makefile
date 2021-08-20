@@ -31,8 +31,8 @@ REGISTRY ?= gcr.io
 PUSH     ?= docker push
 
 #export PROW_REPO_OVERRIDE ?= $(REGISTRY)/$(PROJECT)
-export PROW_REPO_OVERRIDE ?= "quay.io/multi-arch/test-infra"
-export EDGE_PROW_REPO_OVERRIDE ?= "quay.io/multi-arch/test-infra"
+export PROW_REPO_OVERRIDE ?= quay.io/lakshmiravichandran
+export EDGE_PROW_REPO_OVERRIDE ?= quay.io/lakshmiravichandran
 
 DOCKER_LABELS:=--label io.k8s.prow.git-describe="$(shell git describe --tags --always --dirty)"
 
@@ -76,7 +76,7 @@ bazel-release-push:
 	@echo See https://bazel.build/ for install options.
 	@echo Be sure to setup authentication: https://github.com/bazelbuild/rules_docker#authentication
 	@echo Also run gcloud auth application-default login
-	bazel run //prow:release-push --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64
+	bazel run //prow:release-push --platforms=@io_bazel_rules_go//go/toolchain:linux_s390x
 
 .PHONY: bazel-release-push
 

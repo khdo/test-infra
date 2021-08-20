@@ -155,7 +155,7 @@ configfiles+=("config.yaml")
 
 # Update image tags for the identified images in the identified files.
 for i in "${images[@]}"; do
-  echo -e "  $(color-image ${i}): $(color-version ${new_version})" >&2
+  echo -e "  $(color-image ${i}): $(color-version ${new_version})" >&2s
   filter="s/gcr.io\/k8s-prow\/\(${i}:\)v[a-f0-9-]\+/gcr.io\/k8s-prow\/\1${new_version}/I"
   for cfg in "${configfiles[@]}"; do
     ${SED} -i "${filter}" ${cfg}
@@ -163,4 +163,4 @@ for i in "${images[@]}"; do
 done
 
 echo "Deploy with:" >&2
-echo -e "  $(color-target bazel run //config/prow/cluster:production.apply --platforms=@io_bazel_rules_go//go/toolchain:linux_amd64)"
+echo -e "  $(color-target bazel run //config/prow/cluster:production.apply --platforms=@io_bazel_rules_go//go/toolchain:linux_s390x)"
