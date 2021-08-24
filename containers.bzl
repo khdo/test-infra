@@ -30,7 +30,7 @@ def repositories():
         registry = "quay.io",
         repository = "multi-arch/test-infra",
         architecture = "s390x",
-	tag = "alpine-s390x",
+        tag = "alpine-s390x",
     )
 
     container_pull(
@@ -39,7 +39,7 @@ def repositories():
         registry = "quay.io",
         repository = "multi-arch/test-infra",
         architecture = "s390x",
-	tag = "alpine-bash-s390x",
+        tag = "alpine-bash-s390x",
     )
 
     container_pull(
@@ -53,12 +53,12 @@ def repositories():
     #    "Architecture": "amd64",
 
     container_pull(
-      name = "git-base",
-      digest = "sha256:24757363c52b2043296c3f05fd1675ceb2e6528ff49cb896701f3fb2486ee74a",
-      registry = "quay.io",
-      repository = "multi-arch/test-infra",
-      architecture = "s390x",
-      tag = "git-s390x",
+        name = "git-base",
+        digest = "sha256:24757363c52b2043296c3f05fd1675ceb2e6528ff49cb896701f3fb2486ee74a",
+        registry = "quay.io",
+        repository = "multi-arch/test-infra",
+        architecture = "s390x",
+        tag = "git-s390x",
     )
 
     container_pull(
