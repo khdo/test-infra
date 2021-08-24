@@ -30,7 +30,7 @@ def repositories():
         registry = "quay.io",
         repository = "multi-arch/test-infra",
         architecture = "s390x",
-        tag = "alpine-s390x",
+	tag = "alpine-s390x",
     )
 
     container_pull(
@@ -39,43 +39,43 @@ def repositories():
         registry = "quay.io",
         repository = "multi-arch/test-infra",
         architecture = "s390x",
-        tag = "alpine-bash-s390x",
+	tag = "alpine-bash-s390x",
     )
 
-    container_pull(
-        name = "gcloud-base",
-        digest = "sha256:5b49dfb5e366dd75a5fc6d5d447be584f8f229c5a790ee0c3b0bd0cf70ec41dd",
-        registry = "gcr.io",
-        repository = "cloud-builders/gcloud",
-    )
+    #container_pull(
+     #   name = "gcloud-base",
+      #  digest = "sha256:5b49dfb5e366dd75a5fc6d5d447be584f8f229c5a790ee0c3b0bd0cf70ec41dd",
+       # registry = "gcr.io",
+       # repository = "cloud-builders/gcloud",
+    #)
     #https://console.cloud.google.com/gcr/images/cloud-builders/global/
     #podman inspect gcr.io/cloud-builders/gcloud:latest | grep Architecture
     #    "Architecture": "amd64",
 
     container_pull(
-        name = "git-base",
-        digest = "sha256:24757363c52b2043296c3f05fd1675ceb2e6528ff49cb896701f3fb2486ee74a",
-        registry = "quay.io",
-        repository = "multi-arch/test-infra",
-        architecture = "s390x",
-        tag = "git-s390x",
+      name = "git-base",
+      digest = "sha256:24757363c52b2043296c3f05fd1675ceb2e6528ff49cb896701f3fb2486ee74a",
+      registry = "quay.io",
+      repository = "multi-arch/test-infra",
+      architecture = "s390x",
+      tag = "git-s390x",
     )
 
-    container_pull(
-        name = "gcloud-go",
-        digest = "sha256:ca9873d744f19e77ceafb499846248a82cde74ab5a613dd394348e7904d08d71",
-        registry = "gcr.io",
-        repository = "k8s-testimages/gcloud-in-go",
-    )
+   # container_pull(
+    #    name = "gcloud-go",
+     #   digest = "sha256:ca9873d744f19e77ceafb499846248a82cde74ab5a613dd394348e7904d08d71",
+      #  registry = "gcr.io",
+       # repository = "k8s-testimages/gcloud-in-go",
+    #)
     #there is no s390x for this https://console.cloud.google.com/gcr/images/k8s-testimages/global/gcloud-in-go
 
-    container_pull(
-        name = "bazel-base",
-        digest = "sha256:e006f1c3658dd11d5176d5f7a862df4d5b9c06cfe014d5b8a86bb64b20a6f8be",
-        registry = "gcr.io",
-        repository = "k8s-testimages/launcher.gcr.io/google/bazel",
-        tag = "v20210128-721ee66-test-infra",
-    )
+    #container_pull(
+     #   name = "bazel-base",
+      #  digest = "sha256:e006f1c3658dd11d5176d5f7a862df4d5b9c06cfe014d5b8a86bb64b20a6f8be",
+       # registry = "gcr.io",
+       # repository = "k8s-testimages/launcher.gcr.io/google/bazel",
+        #tag = "v20210128-721ee66-test-infra",
+    #)
 
     #only in https://console.cloud.google.com/gcr/images/k8s-testimages/global/bazelbuild , I am able to spot the tag v20210128-721ee66-test-infra
     #thiss also works, but only amd64 --> podman pull gcr.io/k8s-testimages/launcher.gcr.io/google/bazel:v20210128-721ee66-test-infra | grep Architecture

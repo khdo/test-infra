@@ -35,15 +35,15 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_file")
 load("@io_bazel_rules_docker//repositories:repositories.bzl", _container_repositories = "repositories")
 
 _container_repositories()
+
 http_file(
-            name = "go_puller_linux",
-            executable = True,
-            sha256 = "540f4d7b2a3d627d7c3190f11c4fab5f8aad48bd42a9dffb037786e26270b6bd",
-	    urls = ["https://storage.googleapis.com/builddeps/540f4d7b2a3d627d7c3190f11c4fab5f8aad48bd42a9dffb037786e26270b6bd"],
-        )
+    name = "go_puller_linux",
+    executable = True,
+    sha256 = "a5527b7b3b4a266e4680a4ad8939429665d4173f26b35d5d317385134369e438",
+    urls = ["https://storage.googleapis.com/rules_docker/aad94363e63d31d574cf701df484b3e8b868a96a/puller-linux-s390x"],
+)
 
 load("@io_bazel_rules_docker//repositories:deps.bzl", container_deps = "deps")
-
 load("@io_bazel_rules_docker//repositories:deps.bzl", _container_deps = "deps")
 
 _container_deps()
